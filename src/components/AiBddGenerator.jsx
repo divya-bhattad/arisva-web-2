@@ -39,7 +39,7 @@ test('Verify successful payment checkout flow', async ({ page }) => {
       label: 'Multi-Factor SSO Authentication',
       prompt: 'User authenticates via Enterprise Okta SSO with TOTP 2FA',
       bdd: `Feature: Multi-Factor Enterprise SSO
-  @security @compliance
+  @security @authentication
   Scenario: Successful SAML/Okta authentication with TOTP
     Given the user initiates SSO login for domain "enterprise.com"
     When the SAML Identity Provider returns an assertion token

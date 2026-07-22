@@ -8,14 +8,14 @@ export default function Industries() {
     {
       name: 'FinTech',
       icon: Building2,
-      headline: 'Zero-Tolerance Payment & Compliance QA',
-      details: 'Automated ISO 20022 message testing, PCI-DSS security compliance suites, transaction stress testing, and core banking API validation.',
+      headline: 'Zero-Defect Payment & Financial API QA',
+      details: 'Automated transaction messaging, security suites, transaction stress testing, and core banking API validation.',
     },
     {
       name: 'Healthcare Tech',
       icon: HeartPulse,
-      headline: 'HIPAA-Compliant Medical Software QA',
-      details: 'HIPAA & HL7/FHIR protocol validation, EHR system integration testing, and clinical workflow automation scripts.',
+      headline: 'Medical Software & Clinical Workflow QA',
+      details: 'HL7/FHIR protocol validation, EHR system integration testing, and clinical workflow automation scripts.',
     },
     {
       name: 'E-commerce',
@@ -39,7 +39,7 @@ export default function Industries() {
       name: 'EdTech',
       icon: GraduationCap,
       headline: 'Scalable LMS & Live Video Streaming QA',
-      details: 'Concurrent user testing for virtual classrooms, accessibility (WCAG 2.1 AA) audits, and mobile learning app automation.',
+      details: 'Concurrent user testing for virtual classrooms, user experience verification, and mobile learning app automation.',
     },
     {
       name: 'Insurance',
