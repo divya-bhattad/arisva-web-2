@@ -119,6 +119,50 @@
   box-shadow: 0 20px 40px -15px rgba(10, 20, 64, 0.12);
 }
 
+/* Metallic Glass Sheen Sweep on Card Hover */
+.glass-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-sheen::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transform: rotate(30deg);
+  transition: left 0.75s ease;
+  pointer-events: none;
+}
+
+.glass-sheen:hover::after {
+  left: 130%;
+}
+
+/* Border Beam Pulse Aura */
+@keyframes borderBeam {
+  0%, 100% {
+    border-color: rgba(63, 169, 245, 0.15);
+    box-shadow: 0 0 6px rgba(63, 169, 245, 0.08);
+  }
+  50% {
+    border-color: rgba(124, 44, 236, 0.25);
+    box-shadow: 0 0 10px rgba(124, 44, 236, 0.12);
+  }
+}
+
+.border-beam {
+  animation: borderBeam 3.5s ease-in-out infinite;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

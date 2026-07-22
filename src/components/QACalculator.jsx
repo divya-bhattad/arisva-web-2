@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Calculator, ArrowRight, TrendingUp, Clock, ShieldCheck, Zap } from 'lucide-react';
+import { Calculator, ArrowRight, TrendingUp, Clock, ShieldCheck, Zap, Copy, Check } from 'lucide-react';
 
 export default function QACalculator({ onOpenContact }) {
   const [teamSize, setTeamSize] = useState(15);
   const [automationPercent, setAutomationPercent] = useState(25);
   const [releaseFrequency, setReleaseFrequency] = useState(2); // releases per month
+  const [roiCopied, setRoiCopied] = useState(false);
 
   // Calculations
   const manualRatio = (100 - automationPercent) / 100;
@@ -13,8 +14,15 @@ export default function QACalculator({ onOpenContact }) {
   const defectEscapeReduction = Math.min(85, Math.round(30 + (100 - automationPercent) * 0.5));
   const velocityBoost = (1 + (automationPercent < 50 ? 0.45 : 0.25)).toFixed(1);
 
+  const handleCopyROI = () => {
+    const text = `Arisva QA ROI Assessment Summary:\n• Team Size: ${teamSize} engineers\n• Current Automation: ${automationPercent}%\n• Release Frequency: ${releaseFrequency}x/month\n• Est. Hours Saved: ${potentialHoursSaved.toLocaleString()} hrs/yr\n• Defect Escape Reduction: ${defectEscapeReduction}%\n• Release Velocity Boost: ${velocityBoost}x`;
+    navigator.clipboard.writeText(text);
+    setRoiCopied(true);
+    setTimeout(() => setRoiCopied(false), 2000);
+  };
+
   return (
-    <section id="calculator" className="py-24 bg-paper-alt border-b border-line-soft">
+    <section id="calculator" className="py-16 bg-paper-alt border-b border-line-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
@@ -172,13 +180,23 @@ export default function QACalculator({ onOpenContact }) {
               </div>
             </div>
 
-            <a
-              href="mailto:info@arisva.ca?subject=QA Assessment Inquiry"
-              className="w-full gradient-btn text-white py-3.5 rounded-lg font-semibold text-center flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-brand-purple/40"
-            >
-              <span>Get Custom Assessment</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="mailto:info@arisva.ca?subject=QA Assessment Inquiry"
+                className="flex-1 gradient-btn text-white py-3.5 rounded-lg font-semibold text-center flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-brand-purple/40"
+              >
+                <span>Get Custom Assessment</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <button
+                onClick={handleCopyROI}
+                className="px-4 py-3.5 rounded-lg border border-white/20 hover:border-white text-white font-mono text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors"
+              >
+                {roiCopied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 text-brand-cyan" />}
+                <span>{roiCopied ? 'Summary Copied!' : 'Copy Summary'}</span>
+              </button>
+            </div>
           </div>
 
         </div>

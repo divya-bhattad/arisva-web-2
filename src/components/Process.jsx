@@ -34,7 +34,7 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" className="py-24 bg-paper-alt border-b border-line-soft">
+    <section id="process" className="py-16 bg-paper-alt border-b border-line-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

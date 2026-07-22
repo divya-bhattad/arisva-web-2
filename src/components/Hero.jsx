@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, CheckCircle2, Play, RefreshCw, Terminal, Sparkles, ShieldCheck, Clock, Zap, Award } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Play, RefreshCw, Terminal, Sparkles, ShieldCheck, Clock, Zap, Award, Copy, Check } from 'lucide-react';
 
 export default function Hero({ onOpenContact }) {
   const [pipelineRunning, setPipelineRunning] = useState(false);
   const [pipelinePasses, setPipelinePasses] = useState([true, true, true, true]);
   const [activeTrustIndex, setActiveTrustIndex] = useState(0);
+  const [heroEmailCopied, setHeroEmailCopied] = useState(false);
 
   const trustHighlights = [
     {
@@ -138,9 +139,20 @@ export default function Hero({ onOpenContact }) {
                 <span>Talk to our team</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText('info@arisva.ca');
+                  setHeroEmailCopied(true);
+                  setTimeout(() => setHeroEmailCopied(false), 2000);
+                }}
+                className="px-4 py-3.5 rounded-md border border-white/20 hover:border-white text-white font-mono font-semibold text-xs transition-all duration-150 flex items-center gap-2 cursor-pointer bg-white/5 hover:bg-white/10"
+              >
+                {heroEmailCopied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 text-brand-cyan" />}
+                <span>{heroEmailCopied ? 'Email Copied!' : 'Copy Email'}</span>
+              </button>
               <a
                 href="#services"
-                className="px-6 py-3.5 rounded-md border border-white/20 hover:border-white text-white font-semibold text-base transition-colors duration-150 flex items-center gap-2"
+                className="px-5 py-3.5 rounded-md border border-white/15 hover:border-white/40 text-paper/80 font-semibold text-sm transition-colors duration-150 flex items-center gap-2"
               >
                 <span>Explore services</span>
               </a>

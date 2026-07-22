@@ -128,42 +128,10 @@ export default function CaseStudyReport() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <span className="text-xs font-mono tracking-widest text-brand-purple uppercase font-semibold">
-              REAL-TIME CLIENT VERIFICATION
-            </span>
-            <h2 className="text-2xl sm:text-3xl text-ink font-display font-bold mt-1">
-              Enterprise Outcomes &amp; Client Feedback
-            </h2>
-          </div>
-
-          {/* Controls */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={handlePrev}
-              className="p-2 rounded-lg bg-paper-alt hover:bg-line border border-line text-slate hover:text-ink transition-colors cursor-pointer"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-
-            <button
-              onClick={handleNext}
-              className="px-3.5 py-2 rounded-lg bg-ink text-brand-cyan hover:bg-ink-deep border border-ink text-xs font-mono font-semibold flex items-center gap-1.5 transition-colors cursor-pointer shadow"
-            >
-              <RefreshCw className="w-3.5 h-3.5" />
-              <span>Next Feedback</span>
-            </button>
-
-            <button
-              onClick={handleNext}
-              className="p-2 rounded-lg bg-paper-alt hover:bg-line border border-line text-slate hover:text-ink transition-colors cursor-pointer"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+        <div className="mb-8">
+          <h2 className="text-2xl sm:text-3xl text-ink font-display font-bold">
+            Enterprise Outcomes &amp; Client Feedback
+          </h2>
         </div>
 
         {/* Dynamic Card Container with Random Transition */}

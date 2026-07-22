@@ -81,7 +81,7 @@ export default function Services({ onOpenContact }) {
       id: 'ai-solutions-qa-ba',
       tag: 'AI SOLUTIONS',
       icon: Cpu,
-      title: 'AI Solutions for QA & BA',
+      title: 'AI Solutions',
       description: 'AI applied where it actually moves projects forward — automated test generation, AI requirement validation, predictive regression, and defect signals.',
       bullets: [
         'AI-assisted test case & user story acceptance criteria generation',
@@ -152,11 +152,11 @@ export default function Services({ onOpenContact }) {
   ];
 
   return (
-    <section id="services" className="py-24 bg-paper border-b border-line-soft relative">
+    <section id="services" className="py-16 bg-paper border-b border-line-soft relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
             <span className="text-xs font-mono tracking-widest text-brand-purple uppercase font-semibold">
               OUR CORE DISCIPLINES
@@ -169,6 +169,8 @@ export default function Services({ onOpenContact }) {
             Everything Arisva does — QA, BA, staffing, AI, training, DevOps — is built to raise the bar and keep it there.
           </p>
         </div>
+
+        {/* Service Cards Grid */}
 
         {/* Service Cards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -52,7 +52,7 @@ export default function Industries() {
   const current = industriesData[activeIndustry];
 
   return (
-    <section id="industries" className="py-24 bg-paper border-b border-line-soft">
+    <section id="industries" className="py-16 bg-paper border-b border-line-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -91,11 +91,20 @@ export default function Industries() {
         </div>
 
         {/* Selected Industry Detail Card */}
-        <div className="bg-white rounded-2xl border border-line p-8 shadow-lg max-w-4xl flex flex-col md:flex-row gap-6 items-start justify-between">
+        <div key={activeIndustry} className="bg-white rounded-2xl border border-line p-8 shadow-lg max-w-4xl flex flex-col md:flex-row gap-6 items-start justify-between glass-sheen animate-in fade-in duration-300">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-purple/10 text-brand-purple font-mono text-xs font-semibold">
-              <span>{current.name} SPECIALIZATION</span>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-purple/10 text-brand-purple font-mono text-xs font-semibold">
+                <span>{current.name} SPECIALIZATION</span>
+              </div>
+
+              {/* Live Telemetry Ping */}
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-600 font-mono text-[11px] font-bold border border-emerald-500/20">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                <span>LIVE PIPELINE HEALTH VERIFIED</span>
+              </div>
             </div>
+
             <h3 className="text-2xl font-display font-bold text-ink">
               {current.headline}
             </h3>
