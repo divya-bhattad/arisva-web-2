@@ -130,42 +130,47 @@ export default function Hero({ onOpenContact }) {
               keeps getting sharper.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a
-                href="mailto:info@arisva.ca"
-                className="gradient-btn text-white text-base font-semibold px-6 py-3.5 rounded-md flex items-center gap-2 cursor-pointer shadow-lg hover:shadow-brand-blue/30"
-              >
-                <span>Talk to our team</span>
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText('info@arisva.ca');
-                  setHeroEmailCopied(true);
-                  setTimeout(() => setHeroEmailCopied(false), 2000);
-                }}
-                className="px-4 py-3.5 rounded-md border border-white/20 hover:border-white text-white font-mono font-semibold text-xs transition-all duration-150 flex items-center gap-2 cursor-pointer bg-white/5 hover:bg-white/10"
-              >
-                {heroEmailCopied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 text-brand-cyan" />}
-                <span>{heroEmailCopied ? 'Email Copied!' : 'Copy Email'}</span>
-              </button>
-              <a
-                href="#services"
-                className="px-5 py-3.5 rounded-md border border-white/15 hover:border-white/40 text-paper/80 font-semibold text-sm transition-colors duration-150 flex items-center gap-2"
-              >
-                <span>Explore services</span>
-              </a>
+            {/* Unified CTA Action Group */}
+            <div className="pt-2 flex items-center gap-3">
+              {/* Primary Dual-Action Gradient Pill */}
+              <div className="inline-flex items-center rounded-lg bg-gradient-to-r from-brand-blue to-brand-purple p-0.5 shadow-xl">
+                <a
+                  href="mailto:info@arisva.ca"
+                  className="px-6 py-3.5 text-white font-semibold text-base flex items-center gap-2 hover:opacity-95 transition-opacity"
+                >
+                  <span>Talk to our team</span>
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+                <div className="h-6 w-[1px] bg-white/25" />
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText('info@arisva.ca');
+                    setHeroEmailCopied(true);
+                    setTimeout(() => setHeroEmailCopied(false), 2000);
+                  }}
+                  className="px-4 py-3.5 text-white/90 hover:text-white flex items-center gap-1.5 text-xs font-mono font-medium hover:bg-white/10 rounded-r-lg transition-colors cursor-pointer"
+                  title="Copy info@arisva.ca"
+                >
+                  {heroEmailCopied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4 text-brand-cyan" />}
+                  <span>{heroEmailCopied ? 'Copied!' : 'Copy Email'}</span>
+                </button>
+              </div>
             </div>
 
             {/* Live Trust & Guarantee Animation Widget */}
             <div className="pt-4 space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono">
+              <div className="flex items-center justify-between gap-4 text-xs font-mono">
                 <span className="text-white/50 uppercase tracking-wider flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                   Live Quality &amp; Trust Verification
                 </span>
-                <span className="text-white/40">{activeTrustIndex + 1} / {trustHighlights.length}</span>
+                <a
+                  href="#services"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple text-white font-sans text-xs font-bold tracking-wide shadow-lg shadow-brand-cyan/25 hover:shadow-brand-purple/40 hover:scale-105 transition-all duration-200 group border border-white/30"
+                >
+                  <span>Explore services</span>
+                  <ArrowRight className="w-3.5 h-3.5 rotate-90 text-cyan-200 group-hover:translate-y-0.5 transition-transform" />
+                </a>
               </div>
 
               <div className="card-glass rounded-xl p-4 border border-white/15 shadow-xl flex items-center justify-between gap-4 transition-all duration-300">
@@ -288,7 +293,6 @@ export default function Hero({ onOpenContact }) {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
