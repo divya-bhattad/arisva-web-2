@@ -31,12 +31,14 @@ export default function Preloader() {
       <div className="absolute w-[500px] h-[500px] rounded-full bg-brand-purple/20 blur-3xl pointer-events-none animate-pulse" />
 
       <div className="relative z-10 flex flex-col items-center space-y-6 max-w-lg mx-auto">
-        {/* Logo Mark */}
-        <img
-          src="/lockup-crop.png"
-          alt="Arisva logo"
-          className="h-16 sm:h-20 w-auto object-contain animate-pulse"
-        />
+        {/* Logo Mark with Soft-Edged White Background */}
+        <div className="p-3 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl shadow-brand-purple/30 border border-white/30 flex items-center justify-center animate-pulse">
+          <img
+            src="/lockup-crop.png"
+            alt="Arisva logo"
+            className="h-14 sm:h-18 w-auto object-contain"
+          />
+        </div>
 
         {/* Brand Name */}
         <div className="font-logo font-extrabold text-3xl sm:text-4xl tracking-[0.16em] text-white">
