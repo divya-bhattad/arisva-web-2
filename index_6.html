@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arisva — Rise through excellence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1440;
+    --paper:#F7F8FA;
+    --paper-alt:#ECEEF5;
+    --blue:#2149F0;
+    --blue-light:#3FA9F5;
+    --purple:#7C2CEC;
+    --purple-deep:#3B12A6;
+    --slate:#4B5372;
+    --line: rgba(10,20,64,0.13);
+    --line-soft: rgba(10,20,64,0.08);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.04em;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--blue-light);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px; height:7px;
+    background:var(--blue-light);
+    border-radius:50%;
+    display:inline-block;
+  }
+  .eyebrow.on-light{color:var(--purple);}
+  .eyebrow.on-light::before{background:var(--purple);}
+
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{
+      opacity:0;
+      transform:translateY(16px);
+      animation:reveal 0.7s ease forwards;
+    }
+    @keyframes reveal{
+      to{opacity:1; transform:translateY(0);}
+    }
+  }
+
+  :focus-visible{
+    outline:2px solid var(--purple);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,248,250,0.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:78px;
+  }
+  .logo-lockup{
+    display:flex; align-items:center; gap:10px;
+  }
+  .logo-lockup img{height:34px; width:auto;}
+  .logo-lockup span{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:19px;
+    letter-spacing:0.06em;
+    color:var(--ink);
+  }
+  nav .links{
+    display:flex;
+    align-items:center;
+    gap:36px;
+    font-size:14.5px;
+    font-weight:500;
+  }
+  nav .links a{
+    color:var(--slate);
+    transition:color 0.2s ease;
+  }
+  nav .links a:hover{color:var(--ink);}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 20px;
+    border-radius:4px;
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(100deg, var(--blue), var(--purple));
+    color:#fff;
+  }
+  .btn-primary:hover{opacity:0.9;}
+  .btn-ghost{
+    border-color:var(--line);
+    color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:var(--ink);}
+  @media (max-width:860px){
+    nav .links{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:104px 0 84px;
+    background:linear-gradient(155deg, #0A1440 0%, #10205F 55%, #17175A 100%);
+    color:var(--paper);
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    opacity:0.9;
+  }
+  .hero-bg-fade{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(100deg, rgba(10,20,64,0.94) 0%, rgba(10,20,64,0.75) 38%, rgba(10,20,64,0.35) 68%, rgba(10,20,64,0.15) 100%);
+  }
+  .hero-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+  }
+  .hero h1{
+    font-size:clamp(40px, 5.4vw, 66px);
+    line-height:1.04;
+    margin-bottom:24px;
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg, var(--blue-light), var(--purple));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p.lede{
+    font-size:18px;
+    color:rgba(247,248,250,0.75);
+    max-width:46ch;
+    margin-bottom:36px;
+  }
+  .hero .cta-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:44px;
+  }
+  .hero .btn-ghost{
+    border-color:rgba(247,248,250,0.28);
+    color:var(--paper);
+  }
+  .hero .btn-ghost:hover{border-color:var(--paper);}
+
+  .capability-strip{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .capability-strip span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.03em;
+    padding:7px 12px;
+    border:1px solid rgba(247,248,250,0.18);
+    border-radius:4px;
+    color:rgba(247,248,250,0.8);
+    background:rgba(247,248,250,0.05);
+  }
+  .capability-strip span b{
+    color:var(--blue-light);
+    font-weight:600;
+  }
+
+  /* hero visual: pipeline card */
+  .pipeline-card{
+    position:relative;
+    z-index:2;
+    background:rgba(247,248,250,0.06);
+    border:1px solid rgba(247,248,250,0.14);
+    backdrop-filter:blur(6px);
+    color:var(--paper);
+    border-radius:10px;
+    padding:28px;
+    box-shadow:0 30px 60px -25px rgba(0,0,0,0.5);
+  }
+  .pipeline-card .head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:rgba(247,248,250,0.55);
+    margin-bottom:22px;
+    letter-spacing:0.05em;
+  }
+  .pipeline-card .dots{display:flex; gap:6px;}
+  .pipeline-card .dots i{
+    width:8px; height:8px; border-radius:50%;
+    background:rgba(247,248,250,0.25);
+    display:inline-block;
+  }
+  .stage{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:13px 0;
+    border-bottom:1px solid rgba(247,248,250,0.1);
+  }
+  .stage:last-child{border-bottom:none;}
+  .stage .check{
+    width:22px; height:22px;
+    border-radius:50%;
+    background:rgba(124,44,236,0.2);
+    border:1px solid var(--purple);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .stage .check svg{width:11px; height:11px;}
+  .stage .name{
+    font-weight:500;
+    font-size:14.5px;
+  }
+  .stage .status{
+    margin-left:auto;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--blue-light);
+    letter-spacing:0.06em;
+  }
+  .pipeline-card .foot{
+    margin-top:20px;
+    padding-top:18px;
+    border-top:1px solid rgba(247,248,250,0.1);
+    display:flex;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:rgba(247,248,250,0.6);
+  }
+  .pipeline-card .foot b{color:var(--blue-light);}
+
+  /* ---------- SERVICES ---------- */
+  .services{
+    padding:104px 0;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:56px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.4vw,40px);
+    max-width:16ch;
+  }
+  .section-head p{
+    color:var(--slate);
+    max-width:38ch;
+    font-size:15.5px;
+  }
+
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:760px){
+    .service-grid{grid-template-columns:1fr;}
+  }
+  .service-card{
+    background:var(--paper);
+    padding:38px;
+    transition:background 0.2s ease;
+  }
+  .service-card:hover{background:var(--paper-alt);}
+  .service-card .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--purple);
+    letter-spacing:0.08em;
+    display:inline-block;
+    padding:4px 9px;
+    border:1px solid rgba(124,44,236,0.3);
+    border-radius:4px;
+    margin-bottom:20px;
+  }
+  .service-card h3{
+    font-size:22px;
+    margin-bottom:12px;
+  }
+  .service-card p{
+    color:var(--slate);
+    font-size:15px;
+    margin-bottom:18px;
+  }
+  .service-card .list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .service-card .list div{
+    display:flex;
+    align-items:baseline;
+    gap:9px;
+    font-size:13.5px;
+    color:var(--ink);
+  }
+  .service-card .list div::before{
+    content:"";
+    width:5px; height:5px;
+    background:var(--blue);
+    flex-shrink:0;
+    transform:translateY(-2px);
+  }
+
+  /* ---------- AI FUNDAMENTALS STRIP ---------- */
+  .ai-fundamentals{
+    position:relative;
+    padding:96px 0;
+    background:linear-gradient(155deg, #0A1440 0%, #17175A 100%);
+    color:var(--paper);
+    overflow:hidden;
+    border-bottom:1px solid rgba(247,248,250,0.08);
+  }
+  .ai-fundamentals .wrap{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:0.95fr 1.05fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:900px){
+    .ai-fundamentals .wrap{grid-template-columns:1fr;}
+  }
+  .ai-fundamentals h2{
+    color:var(--paper);
+    font-size:clamp(26px,3.2vw,36px);
+    margin-bottom:18px;
+    max-width:15ch;
+  }
+  .ai-fundamentals p{
+    color:rgba(247,248,250,0.72);
+    font-size:15.5px;
+    max-width:46ch;
+    margin-bottom:22px;
+  }
+  .ai-fundamentals .layer-key{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:rgba(247,248,250,0.65);
+  }
+  .ai-fundamentals .layer-key span{
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .ai-fundamentals .layer-key i{
+    width:9px; height:9px;
+    border-radius:50%;
+    display:inline-block;
+  }
+  .diagram-panel{
+    background:rgba(247,248,250,0.05);
+    border:1px solid rgba(247,248,250,0.12);
+    border-radius:10px;
+    padding:18px;
+  }
+  .diagram-panel svg{width:100%; height:auto;}
+
+  /* ---------- PROCESS ---------- */
+  .process{
+    padding:104px 0;
+    background:var(--paper-alt);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .process-track{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    margin-top:56px;
+  }
+  .process-track::before{
+    content:"";
+    position:absolute;
+    top:19px; left:0; right:0;
+    height:1px;
+    background:var(--line);
+  }
+  @media (max-width:820px){
+    .process-track{grid-template-columns:1fr; gap:36px;}
+    .process-track::before{display:none;}
+  }
+  .process-step{
+    position:relative;
+    padding-right:24px;
+  }
+  .process-step .num{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1.5px solid var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:500;
+    position:relative;
+    z-index:1;
+    margin-bottom:22px;
+    background:var(--paper-alt);
+  }
+  .process-step:last-child .num{
+    background:var(--ink);
+    color:var(--blue-light);
+    border-color:var(--ink);
+  }
+  .process-step h3{
+    font-size:19px;
+    margin-bottom:10px;
+  }
+  .process-step p{
+    color:var(--slate);
+    font-size:14.5px;
+    max-width:30ch;
+  }
+
+  /* ---------- STATS ---------- */
+  .stats{
+    padding:88px 0;
+    background:var(--ink);
+    color:var(--paper);
+    border-bottom:1px solid rgba(247,248,250,0.08);
+  }
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:32px;
+  }
+  @media (max-width:760px){
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  .stat b{
+    display:block;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(30px,3.6vw,44px);
+    font-weight:600;
+    background:linear-gradient(100deg, var(--blue-light), var(--purple));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:8px;
+  }
+  .stat span{
+    font-size:13.5px;
+    color:rgba(247,248,250,0.65);
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- INDUSTRIES ---------- */
+  .industries{
+    padding:104px 0;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .industry-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:44px;
+  }
+  .industry-row span{
+    font-size:14.5px;
+    padding:12px 20px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--ink);
+    background:var(--paper);
+    font-weight:500;
+  }
+
+  /* ---------- REPORT / TESTIMONIAL ---------- */
+  .report{
+    padding:0 0 104px;
+  }
+  .report-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:44px;
+    background:var(--paper-alt);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  @media (max-width:820px){
+    .report-card{grid-template-columns:1fr;}
+  }
+  .report-card .quote{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:23px;
+    line-height:1.4;
+    font-weight:500;
+  }
+  .report-card .who{
+    margin-top:20px;
+    font-size:14px;
+    color:var(--slate);
+  }
+  .report-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--slate);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    justify-content:center;
+    border-left:1px solid var(--line);
+    padding-left:36px;
+  }
+  @media (max-width:820px){
+    .report-meta{border-left:none; padding-left:0; border-top:1px solid var(--line); padding-top:20px;}
+  }
+  .report-meta div{display:flex; justify-content:space-between; gap:16px;}
+  .report-meta b{color:var(--purple);}
+
+  /* ---------- CTA ---------- */
+  .cta-band{
+    padding:96px 0;
+    text-align:center;
+    background:linear-gradient(160deg, #0A1440, #17175A);
+    color:var(--paper);
+  }
+  .cta-band h2{
+    color:var(--paper);
+    font-size:clamp(30px,4vw,46px);
+    max-width:20ch;
+    margin:0 auto 22px;
+  }
+  .cta-band p{
+    color:rgba(247,248,250,0.7);
+    max-width:44ch;
+    margin:0 auto 36px;
+    font-size:16px;
+  }
+  .cta-band .cta-row{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .cta-band .btn-ghost{
+    border-color:rgba(247,248,250,0.3);
+    color:var(--paper);
+  }
+  .cta-band .btn-ghost:hover{border-color:var(--paper);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:56px 0 40px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:40px;
+    padding-bottom:40px;
+    border-bottom:1px solid var(--line-soft);
+    margin-bottom:28px;
+  }
+  .footer-brand{display:flex; gap:14px; max-width:34ch;}
+  .footer-brand img{height:40px; width:auto; flex-shrink:0;}
+  .footer-brand p{
+    color:var(--slate);
+    font-size:14px;
+    margin-top:6px;
+  }
+  .footer-cols{
+    display:flex;
+    gap:64px;
+    flex-wrap:wrap;
+  }
+  .footer-col h4{
+    font-size:13px;
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.06em;
+    color:var(--slate);
+    margin-bottom:16px;
+    font-weight:500;
+  }
+  .footer-col a, .footer-col span{
+    display:block;
+    font-size:14.5px;
+    color:var(--ink);
+    margin-bottom:10px;
+  }
+  .footer-col a:hover{color:var(--purple);}
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:13px;
+    color:var(--slate);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo-lockup">
+      <img src="assets/mark-crop.png" alt="Arisva mark">
+      <span>ARISVA</span>
+    </a>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#ai">AI Fundamentals</a>
+      <a href="#process">Approach</a>
+      <a href="#industries">Industries</a>
+    </div>
+    <a href="#contact" class="btn btn-primary">Start a project</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-bg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="edgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#3FA9F5"/>
+          <stop offset="100%" stop-color="#B26CF0"/>
+        </linearGradient>
+      </defs>
+      <line x1="140" y1="110" x2="560" y2="70" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="110" x2="560" y2="210" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="110" x2="560" y2="350" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="110" x2="560" y2="490" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="110" x2="560" y2="630" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="250" x2="560" y2="70" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="250" x2="560" y2="210" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="250" x2="560" y2="350" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="250" x2="560" y2="490" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="250" x2="560" y2="630" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="390" x2="560" y2="70" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="390" x2="560" y2="210" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="390" x2="560" y2="350" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="390" x2="560" y2="490" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="390" x2="560" y2="630" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="530" x2="560" y2="70" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="530" x2="560" y2="210" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="530" x2="560" y2="350" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="530" x2="560" y2="490" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="140" y1="530" x2="560" y2="630" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="70" x2="980" y2="200" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="70" x2="980" y2="390" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="70" x2="980" y2="580" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="210" x2="980" y2="200" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="210" x2="980" y2="390" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="210" x2="980" y2="580" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="350" x2="980" y2="200" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="350" x2="980" y2="390" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="350" x2="980" y2="580" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="490" x2="980" y2="200" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="490" x2="980" y2="390" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="490" x2="980" y2="580" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="630" x2="980" y2="200" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="630" x2="980" y2="390" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+      <line x1="560" y1="630" x2="980" y2="580" stroke="url(#edgeGrad)" stroke-width="1" opacity="0.22"/>
+
+      <circle cx="140" cy="110" r="6" fill="#3FA9F5"/>
+      <circle cx="140" cy="250" r="6" fill="#3FA9F5"/>
+      <circle cx="140" cy="390" r="6" fill="#3FA9F5"/>
+      <circle cx="140" cy="530" r="6" fill="#3FA9F5"/>
+      <circle cx="560" cy="70" r="6" fill="#7C6CF0"/>
+      <circle cx="560" cy="210" r="6" fill="#7C6CF0"/>
+      <circle cx="560" cy="350" r="6" fill="#7C6CF0"/>
+      <circle cx="560" cy="490" r="6" fill="#7C6CF0"/>
+      <circle cx="560" cy="630" r="6" fill="#7C6CF0"/>
+      <circle cx="980" cy="200" r="7" fill="#B26CF0"/>
+      <circle cx="980" cy="390" r="7" fill="#B26CF0"/>
+      <circle cx="980" cy="580" r="7" fill="#B26CF0"/>
+
+      <!-- pixel-dissolve motif echoing the logo -->
+      <rect x="1040" y="90" width="10" height="10" fill="#3FA9F5" opacity="0.5"/>
+      <rect x="1075" y="120" width="7" height="7" fill="#7C6CF0" opacity="0.45"/>
+      <rect x="1015" y="140" width="6" height="6" fill="#B26CF0" opacity="0.4"/>
+      <rect x="1095" y="160" width="9" height="9" fill="#3FA9F5" opacity="0.35"/>
+      <rect x="1060" y="185" width="5" height="5" fill="#7C6CF0" opacity="0.4"/>
+    </svg>
+    <div class="hero-bg-fade" aria-hidden="true"></div>
+
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">QA · Staffing · AI · Training</div>
+        <h1 class="reveal">Rise through <em>excellence</em>.</h1>
+        <p class="lede reveal" style="animation-delay:0.08s">
+          Arisva pairs rigorous software QA with the people and AI tooling to back it up —
+          so every release ships tested, every team is staffed right, and every engineer
+          keeps getting sharper.
+        </p>
+        <div class="cta-row reveal" style="animation-delay:0.16s">
+          <a href="#contact" class="btn btn-primary">Talk to our team</a>
+          <a href="#services" class="btn btn-ghost">Explore services</a>
+        </div>
+        <div class="capability-strip reveal" style="animation-delay:0.24s">
+          <span><b>✓</b> Manual &amp; automated testing</span>
+          <span><b>✓</b> QA &amp; SDET staffing</span>
+          <span><b>✓</b> AI-assisted test pipelines</span>
+          <span><b>✓</b> Certified training tracks</span>
+        </div>
+      </div>
+
+      <div class="pipeline-card reveal" style="animation-delay:0.2s">
+        <div class="head">
+          <span>RELEASE_PIPELINE.log</span>
+          <div class="dots"><i></i><i></i><i></i></div>
+        </div>
+        <div class="stage">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#B26CF0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="name">Test strategy defined</div>
+          <div class="status">PASS</div>
+        </div>
+        <div class="stage">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#B26CF0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="name">Automation suite executed</div>
+          <div class="status">PASS</div>
+        </div>
+        <div class="stage">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#B26CF0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="name">AI regression scan</div>
+          <div class="status">PASS</div>
+        </div>
+        <div class="stage">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#B26CF0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="name">Team staffed &amp; onboarded</div>
+          <div class="status">PASS</div>
+        </div>
+        <div class="foot">
+          <span>4/4 gates cleared</span>
+          <span>STATUS: <b>READY TO SHIP</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Four disciplines, one standard of quality.</h2>
+        <p>Everything Arisva does — testing, people, AI, training — is built to raise the bar and keep it there.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <span class="tag">QA TESTING</span>
+          <h3>Software QA Testing</h3>
+          <p>End-to-end quality coverage across web, mobile, and API layers, wired into your release cycle instead of bolted on at the end.</p>
+          <div class="list">
+            <div>Manual, functional &amp; regression testing</div>
+            <div>Test automation (Selenium, Playwright, Cypress)</div>
+            <div>Performance &amp; load testing</div>
+            <div>Security &amp; API testing</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <span class="tag">STAFFING</span>
+          <h3>IT &amp; QA Staffing</h3>
+          <p>Vetted QA engineers, SDETs, and developers — placed on contract, contract-to-hire, or direct hire, matched to how your team actually works.</p>
+          <div class="list">
+            <div>QA engineers &amp; SDETs</div>
+            <div>Automation &amp; performance specialists</div>
+            <div>AI/ML engineers</div>
+            <div>Contract, C2H &amp; permanent placement</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <span class="tag">AI</span>
+          <h3>AI Solutions</h3>
+          <p>AI applied where it actually moves testing forward — smarter test generation, faster regression, earlier defect signal.</p>
+          <div class="list">
+            <div>AI-assisted test case generation</div>
+            <div>Predictive defect analysis</div>
+            <div>Intelligent regression selection</div>
+            <div>AI integration &amp; consulting for QA teams</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <span class="tag">TRAINING</span>
+          <h3>Trainings &amp; Certifications</h3>
+          <p>Cohort and corporate training that turns testers into automation engineers, and engineers into AI-fluent problem solvers.</p>
+          <div class="list">
+            <div>QA &amp; automation certification tracks</div>
+            <div>Selenium, Playwright &amp; API testing bootcamps</div>
+            <div>AI/ML upskilling for engineering teams</div>
+            <div>Custom corporate training programs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI FUNDAMENTALS -->
+  <section class="ai-fundamentals" id="ai">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">AI Fundamentals</div>
+        <h2>How our AI actually helps QA</h2>
+        <p>Under the hood, our AI-assisted testing runs on a straightforward neural network: raw signals from your app (inputs) pass through hidden layers that learn patterns from past test runs, and come out the other side as a prioritized call — pass, flag, or investigate.</p>
+        <div class="layer-key">
+          <span><i style="background:#3FA9F5"></i>Input layer — test signals &amp; logs</span>
+          <span><i style="background:#7C6CF0"></i>Hidden layers — pattern learning</span>
+          <span><i style="background:#B26CF0"></i>Output layer — defect prediction</span>
+        </div>
+      </div>
+      <div class="diagram-panel">
+        <svg viewBox="0 0 700 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Simplified neural network diagram showing input, hidden, and output layers">
+          <defs>
+            <linearGradient id="edgeGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#3FA9F5"/>
+              <stop offset="100%" stop-color="#B26CF0"/>
+            </linearGradient>
+          </defs>
+          <g stroke="url(#edgeGrad2)" stroke-width="1" opacity="0.4">
+            <line x1="90" y1="80" x2="350" y2="55"/>
+            <line x1="90" y1="80" x2="350" y2="160"/>
+            <line x1="90" y1="80" x2="350" y2="265"/>
+            <line x1="90" y1="80" x2="350" y2="370"/>
+            <line x1="90" y1="190" x2="350" y2="55"/>
+            <line x1="90" y1="190" x2="350" y2="160"/>
+            <line x1="90" y1="190" x2="350" y2="265"/>
+            <line x1="90" y1="190" x2="350" y2="370"/>
+            <line x1="90" y1="300" x2="350" y2="55"/>
+            <line x1="90" y1="300" x2="350" y2="160"/>
+            <line x1="90" y1="300" x2="350" y2="265"/>
+            <line x1="90" y1="300" x2="350" y2="370"/>
+            <line x1="90" y1="410" x2="350" y2="55"/>
+            <line x1="90" y1="410" x2="350" y2="160"/>
+            <line x1="90" y1="410" x2="350" y2="265"/>
+            <line x1="90" y1="410" x2="350" y2="370"/>
+            <line x1="350" y1="55" x2="610" y2="135"/>
+            <line x1="350" y1="55" x2="610" y2="325"/>
+            <line x1="350" y1="160" x2="610" y2="135"/>
+            <line x1="350" y1="160" x2="610" y2="325"/>
+            <line x1="350" y1="265" x2="610" y2="135"/>
+            <line x1="350" y1="265" x2="610" y2="325"/>
+            <line x1="350" y1="370" x2="610" y2="135"/>
+            <line x1="350" y1="370" x2="610" y2="325"/>
+          </g>
+          <circle cx="90" cy="80" r="9" fill="#3FA9F5"/>
+          <circle cx="90" cy="190" r="9" fill="#3FA9F5"/>
+          <circle cx="90" cy="300" r="9" fill="#3FA9F5"/>
+          <circle cx="90" cy="410" r="9" fill="#3FA9F5"/>
+          <circle cx="350" cy="55" r="9" fill="#7C6CF0"/>
+          <circle cx="350" cy="160" r="9" fill="#7C6CF0"/>
+          <circle cx="350" cy="265" r="9" fill="#7C6CF0"/>
+          <circle cx="350" cy="370" r="9" fill="#7C6CF0"/>
+          <circle cx="610" cy="135" r="10" fill="#B26CF0"/>
+          <circle cx="610" cy="325" r="10" fill="#B26CF0"/>
+          <text x="70" y="450" font-family="IBM Plex Mono, monospace" font-size="12" fill="rgba(247,248,250,0.55)" text-anchor="middle">INPUT</text>
+          <text x="350" y="450" font-family="IBM Plex Mono, monospace" font-size="12" fill="rgba(247,248,250,0.55)" text-anchor="middle">HIDDEN</text>
+          <text x="610" y="450" font-family="IBM Plex Mono, monospace" font-size="12" fill="rgba(247,248,250,0.55)" text-anchor="middle">OUTPUT</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How an engagement runs.</h2>
+        <p>Four stages, same as any pipeline we'd build for you — nothing ships until it clears the gate.</p>
+      </div>
+
+      <div class="process-track">
+        <div class="process-step">
+          <div class="num mono">01</div>
+          <h3>Discover</h3>
+          <p>We assess your current QA maturity, staffing gaps, and release goals.</p>
+        </div>
+        <div class="process-step">
+          <div class="num mono">02</div>
+          <h3>Build</h3>
+          <p>Test strategy is designed, the right people are assembled, AI tooling is deployed.</p>
+        </div>
+        <div class="process-step">
+          <div class="num mono">03</div>
+          <h3>Verify</h3>
+          <p>Testing cycles run, quality gates are validated, defects surface early.</p>
+        </div>
+        <div class="process-step">
+          <div class="num mono">04</div>
+          <h3>Rise</h3>
+          <p>We tune, retrain, and scale — excellence held, not just hit once.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="wrap stats-grid">
+      <div class="stat">
+        <b>120+</b>
+        <span>QA PROFESSIONALS PLACED</span>
+      </div>
+      <div class="stat">
+        <b>300+</b>
+        <span>TEST SUITES DELIVERED</span>
+      </div>
+      <div class="stat">
+        <b>40%</b>
+        <span>FASTER RELEASES WITH AI-ASSISTED QA</span>
+      </div>
+      <div class="stat">
+        <b>1,000+</b>
+        <span>ENGINEERS TRAINED</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="industries" id="industries">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Built for teams that can't afford a bad release.</h2>
+        <p>Arisva works across industries where quality gaps are expensive — and hiring the wrong person is worse.</p>
+      </div>
+      <div class="industry-row">
+        <span>FinTech</span>
+        <span>Healthcare Tech</span>
+        <span>E-commerce</span>
+        <span>SaaS &amp; Enterprise Software</span>
+        <span>Logistics</span>
+        <span>EdTech</span>
+        <span>Insurance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPORT -->
+  <section class="report">
+    <div class="wrap">
+      <div class="report-card">
+        <div>
+          <p class="quote">"Arisva didn't just test our releases — they built the QA function we didn't have time to build ourselves, then trained our team to run it."</p>
+          <p class="who">VP of Engineering, mid-market SaaS client</p>
+        </div>
+        <div class="report-meta">
+          <div><span>ENGAGEMENT</span> <b>QA + Staffing</b></div>
+          <div><span>DURATION</span> <b>9 months</b></div>
+          <div><span>TEAM SIZE</span> <b>6 placed</b></div>
+          <div><span>OUTCOME</span> <b>Release cadence 2x</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" id="contact">
+    <div class="wrap">
+      <h2>Ready to rise through excellence?</h2>
+      <p>Tell us what you're building, staffing, or trying to test smarter — we'll come back with a plan, not a pitch deck.</p>
+      <div class="cta-row">
+        <a href="mailto:hello@arisva.com" class="btn btn-primary">hello@arisva.com</a>
+        <a href="#top" class="btn btn-ghost">Back to top</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/mark-crop.png" alt="Arisva mark">
+        <p>Software QA testing, staffing, AI, and training — built around one standard: rise through excellence.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>SERVICES</h4>
+          <a href="#services">QA Testing</a>
+          <a href="#services">Staffing</a>
+          <a href="#services">AI Solutions</a>
+          <a href="#services">Trainings</a>
+        </div>
+        <div class="footer-col">
+          <h4>COMPANY</h4>
+          <a href="#process">Approach</a>
+          <a href="#industries">Industries</a>
+          <a href="#ai">AI Fundamentals</a>
+        </div>
+        <div class="footer-col">
+          <h4>CONTACT</h4>
+          <span>hello@arisva.com</span>
+          <span>+1 (000) 000-0000</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Arisva. All rights reserved.</span>
+      <span class="mono">RISE THROUGH EXCELLENCE</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
