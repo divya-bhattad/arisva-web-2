@@ -5,7 +5,7 @@ export default function TechStackMatrix() {
   const categories = [
     'QA & Automation',
     'Business Analysis',
-    'DevOps & Cloud',
+    'Web Design & UX',
     'AI & Intelligence',
   ];
 
@@ -107,7 +107,7 @@ export default function TechStackMatrix() {
         'Gap analysis & operational bottleneck audits',
         'Interactive wireframe prototypes',
       ],
-      stack: ['Miro', 'Lucidchart', 'BPMN 2.0 Standard'],
+      stack: ['Miro', 'Lucidchart', 'BPMN 2.0 Flowcharts'],
     },
     {
       id: 'cucumber-bdd',
@@ -126,38 +126,38 @@ export default function TechStackMatrix() {
       stack: ['Cucumber', 'SpecFlow', 'Behave (Python)'],
     },
 
-    // DevOps & Cloud
+    // Web Design & UX
     {
-      id: 'ci-cd',
-      name: 'GitHub Actions & GitLab CI',
-      cat: 'DevOps & Cloud',
-      level: 'Pipeline Gating',
-      badge: 'CI/CD GATING',
-      icon: Terminal,
-      headline: 'Automated Pull Request Test Gating',
-      desc: 'Wiring automated QA suites into your CI/CD pipeline so no code can merge into production without passing quality checks.',
+      id: 'figma-design',
+      name: 'Figma & UI Systems',
+      cat: 'Web Design & UX',
+      level: 'Design Systems',
+      badge: 'UI/UX DESIGN',
+      icon: Layers,
+      headline: 'Pixel-Perfect Prototypes & Design Systems',
+      desc: 'Crafting high-fidelity interactive wireframes, custom typography systems, and atomic component libraries before development.',
       deliverables: [
-        'Parallel matrix test execution pipelines',
-        'Zero-downtime canary deployment checks',
-        'Slack/Teams build failure notifications',
+        'Interactive Figma prototypes with realistic user flows',
+        'Atomic design systems & scalable UI token libraries',
+        'High-contrast color palettes & micro-typography',
       ],
-      stack: ['GitHub Actions', 'GitLab CI', 'Jenkins', 'Bitbucket'],
+      stack: ['Figma', 'Figma Tokens', 'UI/UX Systems', 'Storybook'],
     },
     {
-      id: 'docker-k8s',
-      name: 'Docker & Kubernetes',
-      cat: 'DevOps & Cloud',
-      level: 'Containerization',
-      badge: 'EPHEMERAL ENV',
-      icon: Layers,
-      headline: 'Containerized Ephemeral Test Environments',
-      desc: 'Provisioning isolated, lightweight Docker environments on demand for reproducible, non-flaky test runs.',
+      id: 'react-tailwind',
+      name: 'React, Next.js & Tailwind CSS',
+      cat: 'Web Design & UX',
+      level: 'Frontend Architecture',
+      badge: 'HIGH PERFORMANCE',
+      icon: Code2,
+      headline: 'Lightning-Fast, High-Converting Web Applications',
+      desc: 'Developing responsive web apps with fluid CSS animations, sub-400ms load times, and 95+ Google Lighthouse scores.',
       deliverables: [
-        'Dockerized test suite containers',
-        'Kubernetes ephemeral staging pods',
-        'Mock backend service containers',
+        'Responsive mobile-first layouts with Tailwind CSS',
+        'Next.js Server Side Rendering (SSR) & SEO optimization',
+        'Framer Motion smooth micro-interactions & glassmorphism',
       ],
-      stack: ['Docker', 'Docker Compose', 'Kubernetes', 'Helm'],
+      stack: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Vite'],
     },
 
     // AI & Intelligence

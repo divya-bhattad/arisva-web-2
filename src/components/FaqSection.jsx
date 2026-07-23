@@ -45,7 +45,7 @@ export default function FaqSection() {
             Frequently Asked Questions
           </h2>
           <p className="text-slate text-sm sm:text-base max-w-xl mx-auto">
-            Everything you need to know about Arisva&apos;s QA, BA, Staffing, AI, and DevOps engagements.
+            Everything you need to know about Arisva&apos;s QA, BA, Staffing, AI, and Website Designing engagements.
           </p>
         </div>
 

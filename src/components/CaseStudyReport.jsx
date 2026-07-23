@@ -34,7 +34,7 @@ export default function CaseStudyReport() {
       quote: "The AI regression model Arisva integrated into our GitHub pipeline cut our full test suite execution time from 4 hours down to 25 minutes with zero false positives.",
       role: "Chief Technology Officer",
       sector: "Logistics & Supply Chain",
-      engagement: "AI Solutions + DevOps",
+      engagement: "AI Solutions + Website Designing",
       duration: "8 months",
       teamSize: "5 Placed",
       outcome: "40% Faster Release Cycle",

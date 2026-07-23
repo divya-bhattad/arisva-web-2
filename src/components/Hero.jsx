@@ -53,7 +53,7 @@ export default function Hero({ onOpenContact }) {
     { name: 'BA & Requirements defined', log: 'BRD, BDD stories & acceptance criteria verified' },
     { name: 'QA Automation suite executed', log: 'Playwright, Cypress & API 100% pass' },
     { name: 'AI regression & AST scan', log: '0 critical anomalies flagged by AI model' },
-    { name: 'Team staffed & DevOps gated', log: 'SDET + BA placed & CI/CD pipeline verified' },
+    { name: 'Team staffed & Web Designed', log: 'SDET + BA placed & Web UI/UX deployed' },
   ];
 
   const handleRunPipeline = () => {

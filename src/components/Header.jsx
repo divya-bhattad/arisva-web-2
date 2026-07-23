@@ -18,6 +18,7 @@ export default function Header() {
 
   const navLinks = [
     { name: 'Services', href: '#services' },
+    { name: 'Design Studio', href: '#web-design-demo' },
     { name: 'Tech Stack', href: '#tech-stack' },
     { name: 'AI Fundamentals', href: '#ai' },
     { name: 'Approach', href: '#process' },
@@ -35,7 +36,7 @@ export default function Header() {
       />
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Logo Lockup */}
-        <a href="#top" className="flex items-center gap-3.5 group py-1">
+        <a href="#top" className="flex items-center gap-3.5 group py-1 flex-shrink-0 mr-4 xl:mr-8">
           <img
             src={lockupLogo}
             alt="Arisva logo"
@@ -45,19 +46,19 @@ export default function Header() {
             <span className="font-logo font-extrabold text-xl sm:text-2xl tracking-[0.14em] text-ink group-hover:text-brand-purple transition-colors leading-none">
               ARISVA
             </span>
-            <span className="text-[10px] sm:text-[11px] font-mono tracking-widest font-bold mt-1 bg-gradient-to-r from-brand-cyan via-brand-purple-soft to-brand-purple bg-clip-text text-transparent">
+            <span className="text-[10px] sm:text-[11px] font-mono tracking-widest font-bold mt-1 bg-gradient-to-r from-brand-cyan via-brand-purple-soft to-brand-purple bg-clip-text text-transparent whitespace-nowrap">
               Rise Through Excellence
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8 font-medium text-sm text-slate">
+        <div className="hidden lg:flex items-center gap-2.5 xl:gap-4 font-medium text-xs xl:text-sm text-slate whitespace-nowrap">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="hover:text-ink transition-colors duration-200 py-1 relative group"
+              className="hover:text-ink transition-colors duration-200 py-1 px-1 relative group"
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-purple transition-all duration-200 group-hover:w-full" />
@@ -66,10 +67,10 @@ export default function Header() {
         </div>
 
         {/* CTA Button */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4 flex-shrink-0 ml-2">
           <a
             href="mailto:info@arisva.ca"
-            className="gradient-btn text-white text-sm font-semibold px-5 py-2.5 rounded-md flex items-center gap-2 cursor-pointer shadow-sm"
+            className="gradient-btn text-white text-xs xl:text-sm font-semibold px-4 xl:px-5 py-2.5 rounded-md flex items-center gap-2 cursor-pointer shadow-sm whitespace-nowrap"
           >
             <span>Start a Project</span>
             <ArrowRight className="w-4 h-4" />
@@ -79,7 +80,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate hover:text-ink focus:outline-none"
+          className="lg:hidden p-2 text-slate hover:text-ink focus:outline-none"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -88,7 +89,7 @@ export default function Header() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-paper/95 backdrop-blur-lg border-b border-line-soft px-4 pt-2 pb-6 space-y-3 animate-in fade-in duration-200">
+        <div className="lg:hidden bg-paper/95 backdrop-blur-lg border-b border-line-soft px-4 pt-2 pb-6 space-y-3 animate-in fade-in duration-200">
           {navLinks.map((link) => (
             <a
               key={link.name}

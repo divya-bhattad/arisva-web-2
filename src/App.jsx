@@ -3,6 +3,7 @@ import Preloader from './components/Preloader';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import WebDesignShowcase from './components/WebDesignShowcase';
 import TechStackMatrix from './components/TechStackMatrix';
 import AiSolutionsHub from './components/AiSolutionsHub';
 import Process from './components/Process';
@@ -23,6 +24,7 @@ export default function App() {
       <main className="flex-grow">
         <Hero />
         <Services />
+        <WebDesignShowcase />
         <TechStackMatrix />
         <AiSolutionsHub />
         <Process />

@@ -1,10 +1,34 @@
 import React, { useState } from 'react';
-import { Shield, Users, Cpu, GraduationCap, FileText, GitBranch, Check, ArrowRight, X, Layers, Code, Zap } from 'lucide-react';
+import { Shield, Users, Cpu, GraduationCap, FileText, Layout, Check, ArrowRight, X, Layers, Code, Zap } from 'lucide-react';
 
 export default function Services({ onOpenContact }) {
   const [activeModal, setActiveModal] = useState(null);
 
   const servicesData = [
+    {
+      id: 'website-designing',
+      tag: 'WEB DESIGN & UI/UX',
+      icon: Layout,
+      title: 'Website Designing & Development',
+      description: 'High-converting, responsive, and visually stunning modern web applications with seamless UI/UX, micro-animations, and fast performance.',
+      bullets: [
+        'Custom UI/UX design & Figma design systems',
+        'Responsive, mobile-first web development (React, Next.js, Vite)',
+        'Interactive micro-animations & glassmorphic UI aesthetics',
+        'SEO optimization, speed performance & mobile responsiveness',
+      ],
+      details: {
+        headline: 'Pixel-Perfect Web Experiences Engineered for High Conversion',
+        overview: 'We craft immersive digital web experiences combining cutting-edge design aesthetics with modern frontend architecture, lightning-fast load times, and dynamic user interactions.',
+        deliverables: [
+          'Interactive Figma prototypes & high-fidelity UI design systems',
+          'Responsive component libraries with seamless CSS & Tailwind styling',
+          'SEO-friendly, high-performance web app builds (95+ Lighthouse score)',
+          'Cross-browser rendering, fluid animations, and smooth layout responsiveness',
+        ],
+        tools: ['React', 'Next.js', 'Tailwind CSS', 'Figma', 'TypeScript', 'Framer Motion', 'Vite'],
+      },
+    },
     {
       id: 'qa-quality-assurance',
       tag: 'QA & TESTING',
@@ -125,30 +149,6 @@ export default function Services({ onOpenContact }) {
         tools: ['Playwright Masterclass', 'BDD / Agile BA Bootcamp', 'API Testing Academy', 'AI-Driven QA/BA Track'],
       },
     },
-    {
-      id: 'devops-release-engineering',
-      tag: 'DEVOPS',
-      icon: GitBranch,
-      title: 'DevOps & Release Engineering',
-      description: 'Automated CI/CD pipelines, containerization, cloud infrastructure management, and quality release gating that ensure fast, reliable deployments.',
-      bullets: [
-        'CI/CD pipeline construction (GitHub Actions, GitLab, Jenkins)',
-        'Infrastructure as Code (Terraform, Docker, Kubernetes)',
-        'Automated quality gating & deployment verification',
-        'Cloud environment management (AWS, Azure, GCP)',
-      ],
-      details: {
-        headline: 'Continuous Integration & Release Automation',
-        overview: 'We build zero-downtime deployment pipelines that link directly with your QA test suites and BA criteria, ensuring code moves safely from PR to production.',
-        deliverables: [
-          'Automated CI/CD workflows with automated rollback safety',
-          'Docker containerization & Kubernetes orchestration setup',
-          'Environment provisioning (Staging, UAT, Production)',
-          'Real-time deployment monitoring & telemetry alerting',
-        ],
-        tools: ['GitHub Actions', 'Docker', 'Kubernetes', 'Terraform', 'AWS', 'Azure', 'Jenkins'],
-      },
-    },
   ];
 
   return (
@@ -166,7 +166,7 @@ export default function Services({ onOpenContact }) {
             </h2>
           </div>
           <p className="text-slate text-base sm:text-lg max-w-md">
-            Everything Arisva does — QA, BA, staffing, AI, training, DevOps — is built to raise the bar and keep it there.
+            Everything Arisva does — QA, BA, staffing, AI, training, website designing — is built to raise the bar and keep it there.
           </p>
         </div>
 
