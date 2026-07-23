@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, ShieldCheck } from 'lucide-react';
+import lockupLogo from '../assets/lockup-crop.png';
 
 export default function Footer() {
   return (
@@ -12,7 +13,7 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-4">
             <a href="#top" className="inline-flex items-center gap-3.5 group mb-2">
               <img
-                src="/lockup-crop.png"
+                src={lockupLogo}
                 alt="Arisva logo"
                 className="h-12 sm:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
               />

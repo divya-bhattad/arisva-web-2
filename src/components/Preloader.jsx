@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import lockupLogo from '../assets/lockup-crop.png';
 
 export default function Preloader() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,7 @@ export default function Preloader() {
         {/* Logo Mark with Soft-Edged White Background */}
         <div className="bg-white p-3.5 rounded-2xl shadow-xl shadow-brand-purple/30 border border-white/30 flex items-center justify-center animate-pulse">
           <img
-            src="/lockup-crop.png"
+            src={lockupLogo}
             alt="Arisva logo"
             className="h-14 sm:h-16 w-auto object-contain"
           />

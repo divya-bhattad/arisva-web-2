@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import lockupLogo from '../assets/lockup-crop.png';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ export default function Header() {
         {/* Logo Lockup */}
         <a href="#top" className="flex items-center gap-3.5 group py-1">
           <img
-            src="/lockup-crop.png"
+            src={lockupLogo}
             alt="Arisva logo"
             className="h-10 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
           />
