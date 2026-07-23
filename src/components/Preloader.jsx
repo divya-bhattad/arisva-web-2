@@ -34,7 +34,7 @@ export default function Preloader() {
         {/* Logo Mark with Soft-Edged White Background */}
         <div className="bg-white p-3.5 rounded-2xl shadow-xl shadow-brand-purple/30 border border-white/30 flex items-center justify-center animate-pulse">
           <img
-            src="/lockup-crop.png"
+            src="./lockup-crop.png"
             alt="Arisva logo"
             className="h-14 sm:h-16 w-auto object-contain"
           />

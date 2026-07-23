@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-4">
             <a href="#top" className="inline-flex items-center gap-3.5 group mb-2">
               <img
-                src="/lockup-crop.png"
+                src="./lockup-crop.png"
                 alt="Arisva logo"
                 className="h-12 sm:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
               />
